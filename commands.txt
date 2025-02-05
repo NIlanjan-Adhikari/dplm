@@ -1,0 +1,4 @@
+# Evaluation
+bash anylasis/plddt_compute.sh ${generation-results} # compute pLDDT using ESMFold
+
+python analysis/cal_plddt_dir.py -i generation-results/airkingbd/dplm_150m -o generation-results/esmfold_pdb --max-tokens-per-batch 1024

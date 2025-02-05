@@ -195,6 +195,7 @@ def run(args):
         torch.hub.set_dir(args.model_dir)
 
     model = esm.pretrained.esmfold_v1()
+    logger.info("model class is called...")
 
 
     model = model.eval()

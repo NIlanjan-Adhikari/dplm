@@ -1,7 +1,8 @@
 # Example:
 # bash analysis/plddt_calculate.sh generation-results/dplm_650m
 
-output_dir=$1
+output_dir=generation-results
+dplm_result_path=generation-results/airkingbd/dplm_150m
 output_filename_list=$(ls ${output_dir})
 echo $output_filename_list
 
@@ -15,8 +16,9 @@ pdb_path=$output_dir/esmfold_pdb
 mkdir -p $pdb_path
 
 echo 'folding by ESMFold'
-python cal_plddt_dir.py -i ${output_dir} -o ${pdb_path} --max-tokens-per-batch ${max_tokens} \
-	-m ${ROOTDIR}/cache-dir
+python3 analysis/cal_plddt_dir.py -i ${dplm_result_path} -o ${pdb_path} --max-tokens-per-batch ${max_tokens}
+# python3 analysis/cal_plddt_dir.py -i ${output_dir} -o ${pdb_path} --max-tokens-per-batch ${max_tokens} \
+# 	-m ${ROOTDIR}/cache-dir
 
 echo "============================Finish Evaluation=============================="
 
